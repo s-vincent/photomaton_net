@@ -1,0 +1,16 @@
+﻿<!--
+Copyright (c) 2017, Sebastien Vincent
+
+Distributed under the terms of the BSD 3-clause License.
+See the LICENSE file for details.
+-->
+
+<Application x:Class="photomaton_wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:photomaton_wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
