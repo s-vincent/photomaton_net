@@ -158,9 +158,8 @@ namespace photomaton_wpf
 
             cameraControl.CameraControl.SetCamera(m_cameraChoice.Devices[m_cameraIndex].Mon, max);
 
-            this.KeyDown += CameraControl_KeyDown;
-            cameraControl.KeyDown += CameraControl_KeyDown;
-            m_window.KeyDown += CameraControl_KeyDown;
+            this.KeyDown += MainWindow_KeyDown;
+            m_window.KeyDown += MainWindow_KeyDown;
             this.Closing += MainWindow_Closing;
             this.Loaded += MainWindow_Loaded;
 
@@ -211,10 +210,15 @@ namespace photomaton_wpf
         /// <param name="e">Argument.</param>
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            /*
             if (m_window != null)
             {
                 m_window.Close();
             }
+            */
+            // do nothing to prevent closing!
+            // use cheat code to exit application.
+            e.Cancel = true;
         } 
 
         /// <summary>
@@ -268,7 +272,7 @@ namespace photomaton_wpf
         /// </summary>
         /// <param name="sender">Control object.</param>
         /// <param name="e">Event for key down.</param>
-        private void CameraControl_KeyDown(object sender, KeyEventArgs e)
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.Key >= Key.A && e.Key <= Key.Z) || (e.Key >= Key.D0 && e.Key <= Key.D9))
             {
@@ -280,6 +284,7 @@ namespace photomaton_wpf
                 m_cheatCode = "";
                 File.Delete(DUMMY_FILENAME);
                 Close();
+                System.Environment.Exit(1);
                 return;
             }
             else if (m_cheatCode == CHEATCODE_RESET)
@@ -289,6 +294,7 @@ namespace photomaton_wpf
                 m_cpt = 5;
                 m_img = 0;
                 m_timer.Stop();
+                m_window.Visibility = Visibility.Hidden;
                 return;
             }
             else if (m_cheatCode == CHEATCODE_WEBCAM_CHANGE)
@@ -299,8 +305,9 @@ namespace photomaton_wpf
                 m_cpt = 5;
                 m_img = 0;
                 m_timer.Stop();
+                m_window.Visibility = Visibility.Hidden;
 
-                if(m_cameraChoice.Devices.Count == 1)
+                if (m_cameraChoice.Devices.Count == 1)
                 {
                     return;
                 }
@@ -339,10 +346,13 @@ namespace photomaton_wpf
                 MessageBox.Show("Fullscreen");
                 this.WindowStyle = WindowStyle.None;
                 this.ResizeMode = ResizeMode.NoResize;
-                this.Left = 0;
-                this.Top = 0;
-                this.Width = SystemParameters.VirtualScreenWidth;
-                this.Height = SystemParameters.VirtualScreenHeight;
+                this.ShowInTaskbar = false;
+                this.WindowState = WindowState.Maximized;
+
+                m_cpt = 5;
+                m_img = 0;
+                m_timer.Stop();
+                m_window.Visibility = Visibility.Hidden;
                 return;
             }
             else if (m_cheatCode == CHEATCODE_NORMAL_SCREEN)
@@ -351,6 +361,12 @@ namespace photomaton_wpf
                 MessageBox.Show("Normal screen");
                 this.WindowStyle = WindowStyle.SingleBorderWindow;
                 this.WindowState = WindowState.Maximized;
+                this.ShowInTaskbar = true;
+
+                m_cpt = 5;
+                m_img = 0;
+                m_timer.Stop();
+                m_window.Visibility = Visibility.Hidden;
                 return;
             }
             else if (CHEATCODE_EXIT.StartsWith(m_cheatCode) ||
