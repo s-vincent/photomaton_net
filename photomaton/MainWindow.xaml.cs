@@ -160,6 +160,7 @@ namespace photomaton_wpf
 
             this.KeyDown += CameraControl_KeyDown;
             cameraControl.KeyDown += CameraControl_KeyDown;
+            m_window.KeyDown += CameraControl_KeyDown;
             this.Closing += MainWindow_Closing;
             this.Loaded += MainWindow_Loaded;
 

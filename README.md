@@ -12,9 +12,7 @@ pictures and print it!
 
 ## Pre-requisites
 
-Qt 5 must be installed to run the application.
-
-Qt 5 development files is need for compiling.
+.NET Framework >= 4.5.2 must be installed.
 
 ## Taking pictures
 
