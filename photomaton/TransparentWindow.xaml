@@ -20,6 +20,6 @@ See the LICENSE file for details.
         ShowActivated="false"
         Title="TransparentWindow" Height="300" Width="300">
     <Grid>
-        <Label x:Name="lbl" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Printing in progress" FontSize="84" Foreground="Green"/>
+        <Label x:Name="lbl" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Printing in progress" FontSize="250" Foreground="Green"/>
     </Grid>
 </Window>
