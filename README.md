@@ -40,6 +40,6 @@ However application propose a set of cheat codes to perform some actions :
 
 ## License
 
-The code is based on camera example from Qt Multimedia and thus source code is
-under BSD-3 license.
+The code is under BSD-3 license. Camera_NET and Directshow.NET library are
+under LGPL 2.1 license.
 
