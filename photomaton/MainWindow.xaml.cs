@@ -434,8 +434,10 @@ namespace photomaton_wpf
 
                         try
                         {
-                            System.IO.FileStream f = System.IO.File.OpenWrite(DUMMY_FILENAME);
-                            f.WriteByte(0x01);
+                            using(System.IO.FileStream f = System.IO.File.OpenWrite(DUMMY_FILENAME))
+                            {
+                                f.WriteByte(0x01);
+                            }
                             m_displayTimer.Start();
                         }
                         finally
