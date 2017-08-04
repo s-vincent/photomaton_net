@@ -1,5 +1,6 @@
 # photomaton_net
-Photomaton-like application for parties (.NET version)
+
+Photo booth application for parties (.NET version)
 
 The application shows camera streams and is able to take series of three
 pictures with countdown.
@@ -29,7 +30,7 @@ put in form the three pictures and launch printing!
 
 To be able to survive a party, the application should not be shutdown, camera
 should not be changed... To achieve that, the application has some limitations
-such as clicking on cross/ALT-F4 do not quit the application.
+such as clicking on cross/ALT-F4 does not quit the application.
 
 However application propose a set of cheat codes to perform some actions :
 - Holds shift and type AK84: exit the application and remove dummy.dmy;
